@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<button>Consumo</button>
+
+
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  <script>
+  var user = "bliss";
+  var pass = "Poweroso77";
+  $('button').click(function(){
+  // 	$.ajax({
+  // 		url:'http://bliss:Poweroso77@54.191.89.231:8000/api/vacantes/',
+  // 		method:'GET',
+  // 		headers:{
+		// 	Authorization: 'bliss:Poweroso77',
+		// },
+  // 		username: "bliss", 
+  //   	password: "Poweroso77",
+  // 		success:function(data){
+  // 			console.log(data);
+  // 		}
+
+  // 	});
+
+  // using jQuery & 'beforeSend' callback
+	$.ajax({
+	    xhrFields: {
+	        withCredentials: false
+	    },
+	    beforeSend: function (xhr) {
+	        xhr.setRequestHeader('Authorization', 'Basic ' + btoa(user+":"+pass));
+	    },
+	    url: "http://54.191.89.231:8000/api/vacantes/",
+	    success:function(data){
+	  			console.log(data);
+	  		}
+	});
+
+
+  }); //click
+  	
+  </script>
+</body>
+
+</html>
